@@ -6,8 +6,8 @@ const PORT = 3080;
 
 app.use(express.json());
 
-const API_URL = "https://unnichat.com.br/a/lZ0coRozxRsT3vtSorSC";
-const API_KEY = "23bea959-2979-44d0-86a8-717f02f3cd3a";
+const API_URL = "https://unnichat.com.br/a/kU4OL0QuCK0yPPtqXUqg";
+const API_KEY = "c045b6d5-dc59-4eb4-b850-6710572e0830";
 
 
 app.get("/", (req, res) => {
@@ -29,20 +29,20 @@ app.post("/cadastro/manychat", async (req, res) => {
     const formBody = new URLSearchParams();
     formBody.append("fullname", manychatNome || "");
     formBody.append("email", manychatEmail || "");
-    formBody.append("field[11]", "ManyChat");
-    formBody.append("field[12]", "Automação");
-    formBody.append("field[13]", "Captação");
-    formBody.append("field[14]", "AutomaçãoDeCadastro");
-    formBody.append("u", "140");
-    formBody.append("f", "140");
+    formBody.append("field[172]", "ManyChat");
+    formBody.append("field[173]", "Automação");
+    formBody.append("field[174]", "Captação");
+    formBody.append("field[175]", "AutomaçãoDeCadastro");
+    formBody.append("u", "168");
+    formBody.append("f", "168");
     formBody.append("s", "");
     formBody.append("c", "0");
     formBody.append("m", "0");
     formBody.append("act", "sub");
     formBody.append("v", "2");
-    formBody.append("or", "bbe4f7f90b97f28721f4a718421d02b8");
+    formBody.append("or", "647da36a133ee296a436b7d09740b30c");
 
-    response = await fetch("https://rayanepinto66712.activehosted.com/proc.php", {
+    response = await fetch("https://brunobonibilia.activehosted.com/proc.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -75,20 +75,20 @@ app.post("/cadastro/unnichat", async (req, res) => {
     formBody.append("fullname", name || ""); // Usa o nome do JSON
     formBody.append("email", email || ""); // Usa o email do JSON
     formBody.append("phone", phoneNumber || ""); // Usa o telefone do JSON
-    formBody.append("field[11]", "Unnichat");
-    formBody.append("field[12]", "Automação");
-    formBody.append("field[13]", "Captação");
-    formBody.append("field[14]", "AutomaçãoDeCadastro");
-    formBody.append("u", "149");
-    formBody.append("f", "149");
+    formBody.append("field[172]", "Unnichat");
+    formBody.append("field[173]", "Automação");
+    formBody.append("field[174]", "Captação");
+    formBody.append("field[175]", "AutomaçãoDeCadastro");
+    formBody.append("u", "169");
+    formBody.append("f", "169");
     formBody.append("s", "");
     formBody.append("c", "0");
     formBody.append("m", "0");
     formBody.append("act", "sub");
     formBody.append("v", "2");
-    formBody.append("or", "bbe4f7f90b97f28721f4a718421d02b8");
+    formBody.append("or", "79542c012564e3c2327133cc8700e59c");
 
-    response = await fetch("https://rayanepinto66712.activehosted.com/proc.php", {
+    response = await fetch("https://brunobonibilia.activehosted.com/proc.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -119,45 +119,6 @@ app.post("/cadastro/unnichat", async (req, res) => {
   }
 });
 
-app.post("/atualizacao/manychat", async (req, res) => {
-  const data = req.body;
-  try {
-    let response;
-    const { custom_fields } = data;
-    const {
-      "[Email]": manychatEmail,
-      Nome: manychatNome,
-      Tel: manychatTel,
-    } = custom_fields;
-
-    const formBody = new URLSearchParams();
-    formBody.append("fullname", manychatNome || "");
-    formBody.append("email", manychatEmail || "");
-    formBody.append("phone", "");
-    formBody.append("u", "141");
-    formBody.append("f", "141");
-    formBody.append("s", "");
-    formBody.append("c", "0");
-    formBody.append("m", "0");
-    formBody.append("act", "sub");
-    formBody.append("v", "2");
-    formBody.append("or", "bbe4f7f90b97f28721f4a718421d02b8");
-
-    response = await fetch("https://rayanepinto66712.activehosted.com/proc.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: formBody,
-    });
-
-    res.status(200).json({ message: "Success" });
-  } catch (error) {
-    console.error("Erro:", error);
-    res.status(500).json({ message: "Erro ao processar a requisição" });
-  }
-});
-
 app.post("/cadastro/forms/fc", async (req, res) => {
   const data = req.body;
   try {
@@ -168,20 +129,20 @@ app.post("/cadastro/forms/fc", async (req, res) => {
     formBody.append("fullname", nome || "");
     formBody.append("email", email || "");
     formBody.append("phone", telefone || "");
-    formBody.append("field[11]", utm_source || "");
-    formBody.append("field[12]", utm_medium || "");
-    formBody.append("field[13]", utm_campaing || "");
-    formBody.append("field[14]", utm_content || "");
-    formBody.append("u", "147");
-    formBody.append("f", "147");
+    formBody.append("field[172]", utm_source || "");
+    formBody.append("field[173]", utm_medium || "");
+    formBody.append("field[174]", utm_campaing || "");
+    formBody.append("field[175]", utm_content || "");
+    formBody.append("u", "169");
+    formBody.append("f", "169");
     formBody.append("s", "");
     formBody.append("c", "0");
     formBody.append("m", "0");
     formBody.append("act", "sub");
     formBody.append("v", "2");
-    formBody.append("or", "bbe4f7f90b97f28721f4a718421d02b8");
+    formBody.append("or", "79542c012564e3c2327133cc8700e59c");
 
-    response = await fetch("https://rayanepinto66712.activehosted.com/proc.php", {
+    response = await fetch("https://brunobonibilia.activehosted.com/proc.php", {
       method: "POST",
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
@@ -298,12 +259,14 @@ app.post("/integracao/clint", async (req, res) => {
   try {
     if (data) {
       // Isolando os campos `name` e `whatsapp_phone`
+
+      console.log(data.contact.phoneNumber)
       const payload = {
         telefone: String(data.contact.phoneNumber)
       };
 
       // Enviando a requisição para o webhook
-      const response = await fetch("https://functions-api.clint.digital/endpoints/integration/webhook/7ea35c16-a46a-4eae-ab04-eee1161268cd", {
+      const response = await fetch("https://functions-api.clint.digital/endpoints/integration/webhook/cf7add2a-205e-44bd-b42a-f64b3cb6f2b4", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload)
@@ -313,6 +276,46 @@ app.post("/integracao/clint", async (req, res) => {
         throw new Error(`Erro ao enviar dados para o webhook: ${response.statusText}`);
       }
     }
+
+    res.status(200).json({ message: "Success" });
+  } catch (error) {
+    console.error("Erro:", error);
+    res.status(500).json({ message: "Erro ao processar a requisição" });
+  }
+});
+
+// Rota para receber a requisição POST
+app.post("/dados/flow", async (req, res) => {
+
+  try {
+    let response;
+
+    const data = req.body;
+    const { email, phone, respostas} = data; // Extrai os dados
+
+    console.log("Dados recebidos: ", data)
+
+    const formBody = new URLSearchParams();
+    formBody.append("email", email || ""); // Usa o email do JSON
+    formBody.append("phone", phone || ""); // Usa o telefone do JSON
+    formBody.append("field[185]", respostas || "");
+    formBody.append("u", "171");
+    formBody.append("f", "171");
+    formBody.append("s", "");
+    formBody.append("c", "0");
+    formBody.append("m", "0");
+    formBody.append("act", "sub");
+    formBody.append("v", "2");
+    formBody.append("or", "6a5fb72e17b40084a6c8c0f0891058fa");
+
+    response = await fetch("https://brunobonibilia.activehosted.com/proc.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formBody,
+    });
+
 
     res.status(200).json({ message: "Success" });
   } catch (error) {
