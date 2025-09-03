@@ -48,6 +48,39 @@ app.post("/resposta/fc9", async (req, res) => {
 });
 
 
+app.post("/resposta/g14", async (req, res) => {
+  const data = req.body;
+  try {
+    let response;
+    const { email, resposta } = data;
+
+    const formBody = new URLSearchParams();
+    formBody.append("email", email || "");
+    formBody.append("field[193]", resposta || "");
+    formBody.append("u", "182");
+    formBody.append("f", "182");
+    formBody.append("s", "");
+    formBody.append("c", "0");
+    formBody.append("m", "0");
+    formBody.append("act", "sub");
+    formBody.append("v", "2");
+    formBody.append("or", "c0e3e1b739c72c07cfcdcbcd7aa0eb9e");
+
+    response = await fetch("https://brunobonibilia.activehosted.com/proc.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formBody,
+    });
+
+    res.status(200).json({ message: "Success" });
+  } catch (error) {
+    console.error("Erro:", error);
+    res.status(500).json({ message: "Erro ao processar a requisição" });
+  }
+});
+
 // Inicia o servidor na porta especificada
 app.listen(PORT, () => {
   console.log(`Servidor Ativo`);
