@@ -14,22 +14,23 @@ app.get("/", (req, res) => {
 });
 
 // Rota para receber a requisição POST
-app.post("/resposta", async (req, res) => {
+app.post("/resposta/fc9", async (req, res) => {
   const data = req.body;
   try {
     let response;
-    const { email } = data;
+    const { email, resposta } = data;
 
     const formBody = new URLSearchParams();
     formBody.append("email", email || "");
-    formBody.append("u", "179");
-    formBody.append("f", "179");
+    formBody.append("field[192]", resposta || "");
+    formBody.append("u", "181");
+    formBody.append("f", "181");
     formBody.append("s", "");
     formBody.append("c", "0");
     formBody.append("m", "0");
     formBody.append("act", "sub");
     formBody.append("v", "2");
-    formBody.append("or", "282bcbc441bfa104db19e2f7e7a3c049");
+    formBody.append("or", "73f3799754257e3451a39318545f89f8");
 
     response = await fetch("https://brunobonibilia.activehosted.com/proc.php", {
       method: "POST",
