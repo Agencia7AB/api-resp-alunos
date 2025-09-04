@@ -81,6 +81,39 @@ app.post("/resposta/g14", async (req, res) => {
   }
 });
 
+app.post("/resposta/al1", async (req, res) => {
+  const data = req.body;
+  try {
+    let response;
+    const { email, resposta } = data;
+
+    const formBody = new URLSearchParams();
+    formBody.append("email", email || "");
+    formBody.append("field[45]", resposta || "");
+    formBody.append("u", "16");
+    formBody.append("f", "16");
+    formBody.append("s", "");
+    formBody.append("c", "0");
+    formBody.append("m", "0");
+    formBody.append("act", "sub");
+    formBody.append("v", "2");
+    formBody.append("or", "95d8ed29775c3420333c697134d5691e");
+
+    response = await fetch("https://rayanepinto66712.activehosted.com/proc.php", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formBody,
+    });
+
+    res.status(200).json({ message: "Success" });
+  } catch (error) {
+    console.error("Erro:", error);
+    res.status(500).json({ message: "Erro ao processar a requisição" });
+  }
+});
+
 // Inicia o servidor na porta especificada
 app.listen(PORT, () => {
   console.log(`Servidor Ativo`);
